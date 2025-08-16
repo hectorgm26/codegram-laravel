@@ -1,61 +1,188 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📸 Codegram - Clon de Instagram
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Un clon completo de Instagram desarrollado con **Laravel 12**, que replica las funcionalidades principales de la red social más popular de fotografías.
 
-## About Laravel
+## 🌟 Características Principales
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- 📝 **Registro y Autenticación de Usuarios**
+- 📸 **Subida y Gestión de Imágenes** con procesamiento automático
+- 💬 **Sistema de Comentarios** en tiempo real
+- ❤️ **Sistema de Likes** interactivo
+- 👤 **Perfiles de Usuario** personalizables
+- 📱 **Diseño Responsivo** para todos los dispositivos
+- ⚡ **Interacciones en Tiempo Real** con Livewire
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Stack Tecnológico
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Backend
+- **PHP**
+- **Laravel 12** - Framework PHP moderno
+- **MySQL** - Base de datos relacional
+- **Intervention Image** - Procesamiento y optimización de imágenes
 
-## Learning Laravel
+### Frontend
+- **Tailwind CSS** - Framework CSS utility-first
+- **Livewire** - Componentes reactivos full-stack
+- **Dropzone.js** - Drag & drop file uploads
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📋 Requisitos del Sistema
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- PHP >= 8.2
+- Composer
+- Node.js >= 16.x
+- MySQL >= 8.0
+- Intervention Image
+- Dropzone
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Instalación
 
-## Laravel Sponsors
+### 1. Clonar el Repositorio
+```bash
+git clone https://github.com/hectorgm26/codegram-laravel.git
+cd codegram-laravel
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Instalar Dependencias PHP
+```bash
+composer install
+```
 
-### Premium Partners
+### 3. Instalar Dependencias JavaScript
+```bash
+npm install
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 4. Configuración del Entorno
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Contributing
+### 5. Configurar Base de Datos
+Edita el archivo `.env` con tus credenciales de base de datos:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=codegram
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 6. Ejecutar Migraciones
+```bash
+php artisan migrate
+```
 
-## Code of Conduct
+### 7. Crear Enlace Simbólico para Storage
+```bash
+php artisan storage:link
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 8. Compilar Assets
+```bash
+npm run dev
+# o para producción
+npm run build
+```
 
-## Security Vulnerabilities
+### 9. Iniciar el Servidor
+```bash
+php artisan serve
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+La aplicación estará disponible en `http://localhost:8000`
 
-## License
+## 📱 Funcionalidades Detalladas
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 🔐 Sistema de Autenticación
+- Registro de nuevos usuarios con validación
+- Login/Logout seguro
+- Verificación de email
+
+### 📸 Gestión de Imágenes
+- **Subida por Drag & Drop** con Dropzone.js
+- **Redimensionamiento automático** usando Intervention Image
+- **Múltiples formatos** soportados (JPEG, PNG, WebP)
+
+### 👤 Perfiles de Usuario
+- Edición de información personal
+- Foto de perfil personalizable
+- Biografía
+- Estadísticas de posts y seguidores
+
+### 📝 Sistema de Posts
+- Creación de posts con imagen y descripción
+- Edición y eliminación de posts propios
+- Visualización en timeline
+- Ordenamiento cronológico
+
+### 💬 Interacciones Sociales
+- **Likes en tiempo real** con Livewire
+- **Sistema de comentarios** anidados
+
+## 📊 Base de Datos
+
+### Tablas Principales
+
+#### `users`
+- Información de usuarios
+- Perfiles y configuraciones
+- Timestamps de actividad
+
+#### `posts`
+- Contenido de publicaciones
+- Referencias a imágenes
+- Metadatos de posts
+
+#### `comments`
+- Sistema de comentarios
+- Relaciones jerárquicas
+- Moderación de contenido
+
+#### `likes`
+- Registro de likes
+- Prevención de duplicados
+- Estadísticas de interacciones
+
+## Componentes UI Reutilizables
+- Botones con estados hover/active
+- Cards con sombras y bordes redondeados
+- Formularios con validación visual
+
+## 🔒 Seguridad
+
+- **Validación CSRF** en todos los formularios
+- **Sanitización** de inputs de usuario
+- **Validación de archivos** subidos
+
+## 📈 Optimizaciones de Performance
+
+- **Optimización de imágenes** automática
+- **Paginación** eficiente
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
+
+## 👨‍💻 Autor
+
+**Héctor González** - [@hectorgm26](https://github.com/hectorgm26)
+
+---
+
+⭐ Si este proyecto te ha sido útil, ¡considera darle una estrella en GitHub!
+
+---
+
+*Desarrollado con ❤️ y Laravel*
