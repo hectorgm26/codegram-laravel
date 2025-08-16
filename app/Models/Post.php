@@ -32,7 +32,6 @@ class Post extends Model
     }
 
     public function checkLike(User $user) {
-
         // Recorre los likes del post y comprueba si el user_id del like coincide con el id del usuario autenticado, para evitar que un usuario pueda dar más de un like a un mismo post
         return $this->likes->contains('user_id', $user->id);
     }

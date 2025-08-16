@@ -15,6 +15,8 @@
 
     {{-- Incluir los archivos CSS y JS compilados por Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @livewireStyles
 </head>
 
 <body class="bg-gray-100">
@@ -86,5 +88,6 @@
         &copy; CodeGram - Todos los derechos reservados. {{ now()->year }} {{-- Helper de fecha --}}
     </footer> {{--El arroba para colocar derechos reservados en html es con &copy;--}}
 
+    @livewireScripts
 </body>
 </html>
