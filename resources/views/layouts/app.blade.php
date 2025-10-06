@@ -22,17 +22,36 @@
 <body class="bg-gray-100">
 
     <header class="p-5 border-b bg-white shadow">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="{{ route('home') }}"class="text-3xl font-black">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+
+            {{-- Logo --}}
+            <a href="{{ route('home') }}" class="text-3xl font-black">
                 CodeGram
             </a>
 
             @auth()
+                <nav class="flex flex-col md:flex-row gap-4 items-center w-full md:w-auto justify-center">
 
-                <nav class="flex gap-2 items-center">
+                    {{-- Barra de búsqueda --}}
+                    <form action="{{ route('perfil.buscar') }}" method="GET" class="flex items-center w-full md:w-auto">
+                        <input
+                            type="text"
+                            name="q"
+                            placeholder="Buscar usuario..."
+                            class="border rounded-lg px-3 py-2 text-sm w-full md:w-48 focus:outline-none focus:ring focus:ring-sky-200"
+                            value="{{ request('q') }}"
+                        />
+                        <button
+                            type="submit"
+                            class="ml-2 bg-sky-600 hover:bg-sky-700 text-white px-3 py-2 rounded-lg text-sm font-semibold transition-colors">
+                            Buscar
+                        </button>
+                    </form>
 
+                    {{-- Crear post --}}
                     <a
-                        class="flex items-center gap-2 bg-white border p-2 text-gray-600 rounded text-sm uppercase font-bold cursor-pointer" href="{{ route('posts.create') }}">
+                        class="flex items-center gap-2 bg-white border p-2 text-gray-600 rounded text-sm uppercase font-bold cursor-pointer"
+                        href="{{ route('posts.create') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -40,24 +59,21 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
                         </svg>
-
                         Crear
                     </a>
 
+                    {{-- Perfil --}}
                     <a class="font-bold text-gray-600 text-sm" href="{{ route('posts.index', auth()->user()->username) }}">
-                        Hola:
-                        <span class="font-normal">
-                            {{ auth()->user()->username }}
-                        </span>
+                        Hola: <span class="font-normal">{{ auth()->user()->username }}</span>
                     </a>
 
+                    {{-- Cerrar sesión --}}
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button class="font-bold uppercase text-gray-600 text-sm cursor-pointer" type="submit">
                             Cerrar Sesión
                         </button>
                     </form>
-
                 </nav>
             @endauth
 
@@ -81,12 +97,12 @@
         <h2 class="font-black mb-10 text-3xl text-center">
             @yield('titulo')
         </h2>
-            @yield('contenido')
+        @yield('contenido')
     </main>
 
     <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
-        &copy; CodeGram - Todos los derechos reservados. {{ now()->year }} {{-- Helper de fecha --}}
-    </footer> {{--El arroba para colocar derechos reservados en html es con &copy;--}}
+        &copy; CodeGram - Todos los derechos reservados. {{ now()->year }}
+    </footer>
 
     @livewireScripts
 </body>

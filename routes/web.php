@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/crear-cuenta', [RegisterController::class, 'index'])->name('register');
 Route::post('/crear-cuenta', [RegisterController::class, 'store']);
 
+// Buscar usuarios
+Route::get('/buscar', [PerfilController::class, 'buscar'])->name('perfil.buscar');
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 

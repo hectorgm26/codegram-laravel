@@ -75,4 +75,24 @@ class PerfilController extends Controller
         // Redireccionar al perfil del usuario
         return redirect()->route('posts.index', $usuario->username);
     }
+
+    public function buscar(Request $request)
+    {
+        $query = $request->input('q');
+
+        if (!$query) {
+            return view('perfil.buscar', ['mensaje' => null, 'user' => null]);
+        }
+
+        $user = \App\Models\User::where('username', 'LIKE', "%{$query}%")->first();
+
+        if ($user) {
+            return redirect()->route('posts.index', $user->username);
+        }
+
+        return view('perfil.buscar', [
+            'mensaje' => "No se encontró ningún usuario con el nombre '{$query}'.",
+            'user' => null
+        ]);
+    }
 }
