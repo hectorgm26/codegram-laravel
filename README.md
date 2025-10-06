@@ -8,7 +8,7 @@ Un clon completo de Instagram desarrollado con **Laravel 12**, que replica las f
 - 📸 **Subida y Gestión de Imágenes** con procesamiento automático
 - 💬 **Sistema de Comentarios** en tiempo real
 - ❤️ **Sistema de Likes** interactivo
-- 👤 **Perfiles de Usuario** personalizables
+- 🔍 **Búsqueda de usuarios** disponible
 - 📱 **Diseño Responsivo** para todos los dispositivos
 - ⚡ **Interacciones en Tiempo Real** con Livewire
 
